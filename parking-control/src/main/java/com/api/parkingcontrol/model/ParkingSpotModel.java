@@ -17,7 +17,7 @@ public class ParkingSpotModel{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
     @Column(nullable = false, unique = true, length = 10)
-    private String parkingSpotnumber;
+    private String parkingSpotNumber;
     @Column(nullable = false, unique = true, length = 7)
     private String licensePlateCar;
     @Column(nullable = false, length = 70)
@@ -29,7 +29,7 @@ public class ParkingSpotModel{
     @Column(nullable = false)
     private LocalDateTime registationDate;
     @Column(nullable = false, length = 130)
-    private String Ownername;
+    private String ownerName;
     @Column(nullable = false, length = 30)
     private String apartment;
     @Column(nullable = false, length = 30)
