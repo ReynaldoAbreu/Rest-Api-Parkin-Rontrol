@@ -5,6 +5,10 @@ import com.api.parkingcontrol.repository.ParkingSpotRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
 @Service
 public class ParkingSpotServiceImp implements ParkinkSpotService{
 
@@ -32,5 +36,24 @@ public class ParkingSpotServiceImp implements ParkinkSpotService{
         return parkingSpotRepository.existsByApartmentAndBlock(apartment, block);
     }
 
+    public List<ParkingSpotModel> findAll() {
+        return parkingSpotRepository.findAll();
+    }
 
+    public Optional<ParkingSpotModel> findById(UUID id) {
+
+        return parkingSpotRepository.findById(id);
+    }
+
+    @Transactional
+    public void delete(ParkingSpotModel parkingSpotModel) {
+
+        parkingSpotRepository.delete(parkingSpotModel);
+
+    }
+
+    public ParkingSpotModel updateParkingSpot(ParkingSpotModel parkingSpotModel) {
+
+       return parkingSpotRepository.save(parkingSpotModel);
+    }
 }
