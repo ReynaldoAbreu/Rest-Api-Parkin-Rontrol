@@ -12,10 +12,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
-import java.nio.file.OpenOption;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -75,7 +73,7 @@ public class ParkingSpotController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Parking Spot not found");
         }
 
-        parkingSpotServiceImp.delete(parkingSpotModelOpenOption.get());
+        parkingSpotServiceImp.deleteParkingSpot(parkingSpotModelOpenOption.get());
         return ResponseEntity.status(HttpStatus.OK).body(parkingSpotModelOpenOption.get());
     }
 
